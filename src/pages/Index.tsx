@@ -1,4 +1,3 @@
-import { Sidebar } from "@/components/dashboard/Sidebar";
 import { SearchBar } from "@/components/dashboard/SearchBar";
 import { UnitStats } from "@/components/dashboard/UnitStats";
 import { MonthlyFocus } from "@/components/dashboard/MonthlyFocus";
@@ -12,8 +11,6 @@ import Header from "@/components/dashboard/Header";
 const Index = () => {
   return (
     <div className="flex h-screen bg-warm-gray-50">
-      <Sidebar />
-      
       <main className="flex-1 overflow-auto">
         <Header />
         <div className="p-8 space-y-6">
