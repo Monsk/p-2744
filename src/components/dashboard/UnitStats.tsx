@@ -1,39 +1,38 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Users, UserCheck, ClipboardList } from "lucide-react";
 
 export function UnitStats() {
   return (
-    <div className="grid gap-4 md:grid-cols-3">
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Patients</CardTitle>
-          <Users className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">32</div>
-          <p className="text-xs text-muted-foreground">patients</p>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">On Duty Staff</CardTitle>
-          <UserCheck className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">12</div>
-          <p className="text-xs text-muted-foreground">on duty staff</p>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Pending Tasks</CardTitle>
-          <ClipboardList className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">8</div>
-          <p className="text-xs text-muted-foreground">pending tasks</p>
-        </CardContent>
-      </Card>
+    <div className="grid gap-6 grid-cols-3">
+      <div className="flex items-center gap-4 bg-white p-6 rounded-xl">
+        <div className="p-3 bg-warm-gray-100 rounded-lg">
+          <Users className="h-6 w-6 text-warm-gray-500" />
+        </div>
+        <div>
+          <div className="text-stat font-semibold text-warm-gray-600">32</div>
+          <p className="text-sm text-warm-gray-500">patients</p>
+        </div>
+      </div>
+      
+      <div className="flex items-center gap-4 bg-white p-6 rounded-xl">
+        <div className="p-3 bg-warm-gray-100 rounded-lg">
+          <UserCheck className="h-6 w-6 text-warm-gray-500" />
+        </div>
+        <div>
+          <div className="text-stat font-semibold text-warm-gray-600">12</div>
+          <p className="text-sm text-warm-gray-500">on duty staff</p>
+        </div>
+      </div>
+      
+      <div className="flex items-center gap-4 bg-white p-6 rounded-xl">
+        <div className="p-3 bg-warm-gray-100 rounded-lg">
+          <ClipboardList className="h-6 w-6 text-warm-gray-500" />
+        </div>
+        <div>
+          <div className="text-stat font-semibold text-warm-gray-600">8</div>
+          <p className="text-sm text-warm-gray-500">pending tasks</p>
+        </div>
+      </div>
     </div>
   );
 }
