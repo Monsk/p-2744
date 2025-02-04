@@ -1,82 +1,56 @@
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { LayoutDashboard, Users, UserRound, Calendar } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="h-16 border-b border-warm-gray-200 bg-white flex items-center px-8">
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-warm-gray-600">Overview</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <Link
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-warm-gray-50 to-warm-gray-100 p-6 no-underline outline-none focus:shadow-md"
-                      to="/"
-                    >
-                      <div className="mb-2 mt-4 text-lg font-medium text-warm-gray-600">
-                        Dashboard Overview
-                      </div>
-                      <p className="text-sm leading-tight text-warm-gray-500">
-                        Get a quick overview of your unit's performance and key metrics
-                      </p>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+    <header className="h-16 border-b border-warm-gray-200 bg-white flex items-center justify-between px-8">
+      <div className="flex items-center gap-8">
+        <Link to="/" className="text-accent-orange text-2xl font-bold">
+          a
+        </Link>
+        
+        <nav className="flex items-center gap-6">
+          <Link 
+            to="/" 
+            className="flex items-center gap-2 text-warm-gray-600 hover:text-warm-gray-900"
+          >
+            <LayoutDashboard className="w-5 h-5" />
+            <span className="text-sm font-medium">Dashboard</span>
+          </Link>
+          
+          <Link 
+            to="/patients" 
+            className="flex items-center gap-2 text-warm-gray-600 hover:text-warm-gray-900"
+          >
+            <Users className="w-5 h-5" />
+            <span className="text-sm font-medium">Patients</span>
+          </Link>
+          
+          <Link 
+            to="/staff" 
+            className="flex items-center gap-2 text-warm-gray-600 hover:text-warm-gray-900"
+          >
+            <UserRound className="w-5 h-5" />
+            <span className="text-sm font-medium">Staff</span>
+          </Link>
+          
+          <Link 
+            to="/calendar" 
+            className="flex items-center gap-2 text-warm-gray-600 hover:text-warm-gray-900"
+          >
+            <Calendar className="w-5 h-5" />
+            <span className="text-sm font-medium">Calendar</span>
+          </Link>
+        </nav>
+      </div>
 
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-warm-gray-600">Analytics</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <Link
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-warm-gray-50 to-warm-gray-100 p-6 no-underline outline-none focus:shadow-md"
-                      to="/analytics"
-                    >
-                      <div className="mb-2 mt-4 text-lg font-medium text-warm-gray-600">
-                        Performance Analytics
-                      </div>
-                      <p className="text-sm leading-tight text-warm-gray-500">
-                        Detailed insights and statistics about your unit's operations
-                      </p>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-warm-gray-600">Reports</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <Link
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-warm-gray-50 to-warm-gray-100 p-6 no-underline outline-none focus:shadow-md"
-                      to="/reports"
-                    >
-                      <div className="mb-2 mt-4 text-lg font-medium text-warm-gray-600">
-                        Unit Reports
-                      </div>
-                      <p className="text-sm leading-tight text-warm-gray-500">
-                        Generate and view detailed reports about your unit
-                      </p>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Search patients, tasks, staff..."
+          className="w-64 px-4 py-2 text-sm bg-warm-gray-50 border border-warm-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-warm-gray-300"
+        />
+      </div>
     </header>
   );
 };
