@@ -7,6 +7,7 @@ import { Calendar } from "@/components/dashboard/Calendar";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Info, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Header from "@/components/dashboard/Header";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Sidebar />
       
       <main className="flex-1 overflow-auto">
+        <Header />
         <div className="p-8 space-y-6">
           <Alert className="bg-alert-bg border-0 rounded-lg">
             <div className="flex justify-between items-center w-full">
