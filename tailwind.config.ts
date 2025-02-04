@@ -61,18 +61,7 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				},
-				'warm-gray': {
-					50: '#F9F8F7',
-					100: '#F3F2F1',
-					200: '#E9E7E6',
-					300: '#D5D3D1',
-					400: '#A3A1A0',
-					500: '#78716C',
-					600: '#57534E',
-				},
-				'accent-orange': '#F97316',
-				'alert-bg': '#F3F2F1',
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -100,12 +89,6 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
-			},
-			fontSize: {
-				'stat': '2.5rem',
-			},
-			spacing: {
-				'timeline': '4rem',
 			}
 		}
 	},

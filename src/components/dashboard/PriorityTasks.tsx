@@ -1,7 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Zap } from "lucide-react";
+import { ChevronRight, User } from "lucide-react";
 
 interface Task {
   priority: "HIGH" | "MEDIUM";
@@ -32,39 +32,32 @@ const tasks: Task[] = [
 
 export function PriorityTasks() {
   return (
-    <div className="bg-white p-6 rounded-xl space-y-4">
-      <h2 className="text-lg font-semibold text-warm-gray-600">Priorities</h2>
-      <div className="space-y-4">
+    <Card>
+      <CardHeader>
+        <CardTitle>Priorities</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
         {tasks.map((task, index) => (
           <div
             key={index}
-            className="border border-warm-gray-200 rounded-lg p-4 space-y-2"
+            className="border rounded-lg p-4 space-y-2"
           >
             <div className="flex items-center justify-between">
-              <Badge 
-                variant={task.priority === "HIGH" ? "destructive" : "secondary"}
-                className={task.priority === "HIGH" 
-                  ? "bg-red-50 text-red-600 hover:bg-red-50" 
-                  : "bg-warm-gray-100 text-warm-gray-600 hover:bg-warm-gray-100"}
-              >
+              <Badge variant={task.priority === "HIGH" ? "destructive" : "secondary"}>
                 {task.priority}
               </Badge>
-              <ChevronRight className="h-4 w-4 text-warm-gray-400" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </div>
-            <h3 className="font-medium text-warm-gray-600">{task.title}</h3>
-            <p className="text-sm text-warm-gray-500">{task.description}</p>
+            <h3 className="font-medium">{task.title}</h3>
+            <p className="text-sm text-muted-foreground">{task.description}</p>
             {task.action && (
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="w-full mt-2 text-accent-orange border-accent-orange hover:bg-orange-50"
-              >
+              <Button variant="outline" size="sm" className="w-full mt-2">
                 {task.action}
               </Button>
             )}
           </div>
         ))}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

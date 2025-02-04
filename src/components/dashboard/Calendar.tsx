@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
@@ -28,30 +28,31 @@ const events: Event[] = [
 
 export function Calendar() {
   return (
-    <div className="bg-white p-6 rounded-xl space-y-4">
-      <div className="flex items-center justify-between">
+    <Card className="col-span-1">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0">
         <div>
-          <h2 className="text-lg font-semibold text-warm-gray-600">Today</h2>
-          <p className="text-sm text-warm-gray-500">March 23, 2025</p>
+          <CardTitle>Today</CardTitle>
+          <p className="text-sm text-muted-foreground">March 23, 2025</p>
         </div>
-        <Button variant="outline" size="icon" className="border-warm-gray-200">
-          <ChevronDown className="h-4 w-4 text-warm-gray-400" />
+        <Button variant="outline" size="icon">
+          <ChevronDown className="h-4 w-4" />
         </Button>
-      </div>
-
-      <div className="space-y-4">
-        {events.map((event, index) => (
-          <div key={index} className="flex gap-4">
-            <div className="w-16 text-sm text-warm-gray-400">
-              {event.time}
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          {events.map((event, index) => (
+            <div key={index} className="flex gap-4">
+              <div className="w-16 text-sm text-muted-foreground">
+                {event.time}
+              </div>
+              <div className="flex-1 rounded-lg bg-secondary p-2">
+                <h4 className="font-medium">{event.title}</h4>
+                <p className="text-sm text-muted-foreground">{event.duration}</p>
+              </div>
             </div>
-            <div className="flex-1 rounded-lg bg-warm-gray-100 p-2">
-              <h4 className="font-medium text-warm-gray-600">{event.title}</h4>
-              <p className="text-sm text-warm-gray-500">{event.duration}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   );
 }
